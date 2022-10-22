@@ -111,7 +111,8 @@ def get_max_salary(path):
     jobs_list = read(path)
 
     salary = [
-        float(value["max_salary"]) for value in jobs_list
+        float(value["max_salary"])
+        for value in jobs_list
         if value["max_salary"].isdigit()
     ]
 
@@ -136,7 +137,8 @@ def get_min_salary(path):
     jobs_list = read(path)
 
     salary = [
-        float(value["min_salary"]) for value in jobs_list
+        float(value["min_salary"])
+        for value in jobs_list
         if value["min_salary"].isdigit()
     ]
 
@@ -144,7 +146,7 @@ def get_min_salary(path):
 
 
 def aux_salary_range(job, salary):
-    if int(job["max_salary"]) >= int(salary) >= int(job['min_salary']):
+    if int(job["max_salary"]) >= int(salary) >= int(job["min_salary"]):
         return True
 
     if int(job["max_salary"]) < int(job["min_salary"]):
@@ -208,7 +210,7 @@ def filter_by_salary_range(jobs, salary):
         try:
             if matches_salary_range(job, salary):
                 jobs_list.append(job)
-        
+
         except ValueError:
             ...
 
